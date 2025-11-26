@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Button text="Button" name="Start" style="height: 32px; width: 64px; top: 8px; align-self: flex-end;" />
+</ui:UXML>

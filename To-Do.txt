@@ -1,0 +1,4 @@
+make toothless animation right
+add highlight the deployement tab
+add in range script
+add firing mechanism

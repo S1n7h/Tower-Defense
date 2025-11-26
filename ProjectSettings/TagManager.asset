@@ -5,15 +5,18 @@ TagManager:
   serializedVersion: 3
   tags:
   - Path
+  - Duck
+  - Droplet
+  - UIDroplet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemies
   - Water
   - UI
-  - 
-  - 
+  - stuff
+  - DeploymentUI
   - 
   - 
   - 
@@ -45,8 +48,17 @@ TagManager:
   - name: Background
     uniqueID: 3628699539
     locked: 0
+  - name: Foreground
+    uniqueID: 3724268459
+    locked: 0
+  - name: UI
+    uniqueID: 250481507
+    locked: 0
   - name: Units
     uniqueID: 4171778905
+    locked: 0
+  - name: Enemies
+    uniqueID: 2673680935
     locked: 0
   m_RenderingLayers:
   - Default
