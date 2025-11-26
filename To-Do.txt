@@ -1,4 +1,4 @@
-make toothless animation right
 add highlight the deployement tab
+add object spool for ducks
 add in range script
 add firing mechanism

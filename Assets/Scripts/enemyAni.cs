@@ -3,6 +3,7 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEditorInternal.VersionControl;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.Pool;
 
 public class enemyAni : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class enemyAni : MonoBehaviour
     [SerializeField] private SplineAnimate aniSpline;
     [SerializeField] private Animator animator;
     private SplineContainer containsSpline;
+    private ObjectPool<GameObject> _pool;
     void Start()
     {
         aniSpline.Completed += onComplete;
@@ -31,7 +33,11 @@ public class enemyAni : MonoBehaviour
     
     void onComplete()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        Debug.Log("On Complete is being called.");
+        _pool.Release(gameObject);
+        SplineAnimate splineanimate = gameObject.GetComponent<SplineAnimate>();
+        splineanimate.Restart(true);
     }
 
     public float CalculateTangent()
@@ -40,5 +46,9 @@ public class enemyAni : MonoBehaviour
         float3 tangentVector = containsSpline.EvaluateTangent(aniSpline.Container.Spline, tratio);
         return tangentVector.x;
     }
-    
+
+    public void SetPool(ObjectPool<GameObject> pool)
+    {
+        _pool = pool;
+    }
 }
