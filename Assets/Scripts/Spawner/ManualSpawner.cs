@@ -22,7 +22,6 @@ public class spawner : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("Space is Pressed.");
             spawn();
         }
     }
@@ -38,10 +37,8 @@ public class spawner : MonoBehaviour
     {   
         //Instantiating a new duck GameObject
         GameObject duck = Instantiate(Duck, Duck.transform.position, Duck.transform.rotation);
-        Debug.Log("Before setting pool.");
         enemyAni enemyani = duck.GetComponent<enemyAni>();
         enemyani.SetPool(_duckpool);
-        Debug.Log("After setting pool.");
         return duck;
     }
 

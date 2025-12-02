@@ -34,7 +34,6 @@ public class enemyAni : MonoBehaviour
     void onComplete()
     {
         //Destroy(gameObject);
-        Debug.Log("On Complete is being called.");
         _pool.Release(gameObject);
         SplineAnimate splineanimate = gameObject.GetComponent<SplineAnimate>();
         splineanimate.Restart(true);

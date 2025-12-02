@@ -17,10 +17,6 @@ public class ButtonScript : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         mouse_pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
     }
-    public void OnClick()
-    {
-        
-    }
     public void OnDrag(PointerEventData eventData)
     {
         if (!ImageToRender.enabled) ImageToRender.enabled = true;

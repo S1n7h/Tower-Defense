@@ -8,6 +8,7 @@ TagManager:
   - Duck
   - Droplet
   - UIDroplet
+  - Enemy
   layers:
   - Default
   - TransparentFX
