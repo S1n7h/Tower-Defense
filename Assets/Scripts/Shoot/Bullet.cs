@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Bullet : MonoBehaviour
 {
+    private ObjectPool<GameObject> _dropletBulletpool;
     private Transform _target;
     private float _damage;
     private float _bulletSpeed;
     private float _blastRadius;
     [SerializeField] float expireTime;
     private float _timeElapsed = 0.0f;
-
     public void Initialise(Transform Target, float Damage, float BulletSpeed, float BlastRadius)
     {
         this._target = Target;
@@ -24,7 +25,7 @@ public class Bullet : MonoBehaviour
     {
         if (_timeElapsed >= expireTime)
         {
-            Destroy(this);
+            _dropletBulletpool.Release(gameObject);
         }_timeElapsed += Time.deltaTime;
         if (_target != null)
         {
@@ -34,7 +35,7 @@ public class Bullet : MonoBehaviour
 
             if (Vector3.Distance(this.transform.position, _target.position) < _blastRadius)
             {
-                Destroy(this.gameObject);
+                _dropletBulletpool.Release(gameObject);
                 Destroy(_target.gameObject);
             }
         }
@@ -42,6 +43,12 @@ public class Bullet : MonoBehaviour
         {
 
         }
+    }
+
+    //set pool to droplet's gloabal bullet pool
+    public void SetPool(ObjectPool<GameObject> DropletBulletpool)
+    {
+        _dropletBulletpool = DropletBulletpool;
     }
 }
 
