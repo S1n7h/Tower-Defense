@@ -1,2 +1,3 @@
-add in range script
-add firing mechanism
+make bullet sprite
+add hp bar
+show range while relocating

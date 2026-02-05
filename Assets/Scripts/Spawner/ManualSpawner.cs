@@ -28,7 +28,6 @@ public class spawner : MonoBehaviour
     void spawn()
     {
         //previous method of instantiating duck object
-        //GameObject tempduck = Instantiate(Duck, Duck.transform.position, Duck.transform.rotation);
         GameObject tempduck = _duckpool.Get();
         tempduck.SetActive(true);
     }
@@ -46,9 +45,9 @@ public class spawner : MonoBehaviour
     private void GetDuckfromPool(GameObject duck)
     {
         //setting duck's gameobject properties
+        //Debug.Log("This is being called to spawn the duck.");
         duck.transform.position = Duck.transform.position;
         duck.transform.rotation = Duck.transform.rotation;
-
         //activating duck
         duck.SetActive(true);
     }
@@ -56,11 +55,17 @@ public class spawner : MonoBehaviour
     //what to do when returning to pool
     private void ReturningDucktoPool(GameObject duck)
     {
+        //Debug.Log("This is being called to release the duck.");
+
+        //reseting spline animate of the duck
+        SplineAnimate splineAnimate = duck.GetComponent<SplineAnimate>();
+        splineAnimate.Restart(true);
         duck.SetActive(false);
     }
 
     private void OnDestroyDuck(GameObject duck)
     {
+        //Debug.Log("This is being called to destroy the duck.");
         Destroy(duck);
     }
 }

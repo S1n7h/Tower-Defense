@@ -103,5 +103,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ebfdf7e0e5ed9459ff0d500b501bfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  prefabBullet: {fileID: 6415409197733831604}
   expireTime: 5

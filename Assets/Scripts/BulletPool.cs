@@ -8,7 +8,7 @@ public class BulletPool : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Reached here.");
+        //Debug.Log("Reached here.");
         _DropletBulletpool = new ObjectPool<GameObject>(CreateDropletBullet, GetDropletBulletFromPool, 
                                                         ReturningDucktoPool, OnDestroyDuck, true, 20, 10);
     }
@@ -16,6 +16,7 @@ public class BulletPool : MonoBehaviour
     GameObject CreateDropletBullet()
     {
         GameObject DropletBullet = Instantiate(_dropletBulletPrefab, _dropletBulletPrefab.transform.position, Quaternion.identity);
+        DropletBullet.SetActive(true);
         return DropletBullet;
     }
 
@@ -26,6 +27,7 @@ public class BulletPool : MonoBehaviour
 
     private void ReturningDucktoPool(GameObject droplet)
     {
+        Debug.Log("Bullet was released.");
         droplet.SetActive(false);
     }
 

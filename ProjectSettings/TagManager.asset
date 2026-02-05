@@ -9,6 +9,7 @@ TagManager:
   - Droplet
   - UIDroplet
   - Enemy
+  - Tower
   layers:
   - Default
   - TransparentFX
@@ -16,12 +17,12 @@ TagManager:
   - Enemies
   - Water
   - UI
-  - stuff
+  - Tower
+  - Bullets
   - DeploymentUI
-  - 
-  - 
-  - 
-  - 
+  - FiringRange
+  - Toothless
+  - Particle Effects
   - 
   - 
   - 
@@ -60,6 +61,9 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 2673680935
+    locked: 0
+  - name: RangeEffect
+    uniqueID: 3692076667
     locked: 0
   m_RenderingLayers:
   - Default

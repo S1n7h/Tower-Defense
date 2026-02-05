@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd362c7dd819064a868c6fd3c30b5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _dropletPrefab: {fileID: 1967274043764599434, guid: f50c5be0ab0cbb44ca4791a9dbd480f7, type: 3}
+  _dropletBulletPrefab: {fileID: 5679957766847169099, guid: d9da0c785655783418db75c0cd06a198, type: 3}

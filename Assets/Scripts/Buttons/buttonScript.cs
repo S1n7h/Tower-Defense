@@ -12,6 +12,7 @@ public class ButtonScript : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] GameObject GameObjectHolder;
     [SerializeField] Image ImageToRender;
     [SerializeField] BulletPool bulletPoolContainer;
+    [SerializeField] spawner duckPoolContainer;
     Vector3 mouse_pos;
     
     // Update is called once per frame
@@ -28,9 +29,10 @@ public class ButtonScript : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         GameObject GameObjectToSpawn = Instantiate(GameObjectHolder, new Vector3(mouse_pos.x, mouse_pos.y, 0), Quaternion.identity);
 
-        //setup EnemyCollision script to reference the Pool
-        EnemyCollision enemyCollision = GameObjectToSpawn.GetComponent<EnemyCollision>();
-        enemyCollision.Initialise(bulletPoolContainer);
+        //setup EnemyCollision script to reference the Pool by getting the FiringInRange Child
+        EnemyCollision enemyCollision = GameObjectToSpawn.transform.GetChild(0).GetComponent<EnemyCollision>();
+        //EnemyCollision enemyCollision = GameObjectToSpawn.GetComponent<EnemyCollision>();
+        if(enemyCollision != null) enemyCollision.Initialise(bulletPoolContainer, duckPoolContainer);
 
         ImageToRender.enabled = false;
         GameObjectToSpawn.SetActive(true);
