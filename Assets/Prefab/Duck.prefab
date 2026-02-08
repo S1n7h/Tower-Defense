@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6756275433790573408}
   - component: {fileID: 4366324186674953958}
   - component: {fileID: 3976684450342533400}
-  - component: {fileID: 1845616400497063328}
   m_Layer: 3
   m_Name: Duck
   m_TagString: Enemy
@@ -186,7 +185,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -503,16 +502,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1845616400497063328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1727023739361451737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce722b7e87296484895202c16cd8172d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  _currencyManager: {fileID: 0}
