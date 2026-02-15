@@ -29,13 +29,18 @@ public class enemyAni : MonoBehaviour
         {
             animator.SetBool("isGoingLeft", false);
         }
+
+        aniSpline.ElapsedTime += aniSpline.MaxSpeed * Time.deltaTime;
     }
     
     void onComplete()
     {
         _pool.Release(gameObject);
         SplineAnimate splineanimate = gameObject.GetComponent<SplineAnimate>();
-        splineanimate.Restart(true);
+        aniSpline.ElapsedTime = 0;
+
+        //omitted for now
+        //splineanimate.Restart(true);
     }
 
     public float CalculateTangent()

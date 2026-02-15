@@ -33,6 +33,11 @@ public class ButtonScript : MonoBehaviour, IDragHandler, IEndDragHandler
         EnemyCollision enemyCollision = GameObjectToSpawn.transform.GetChild(0).GetComponent<EnemyCollision>();
         //EnemyCollision enemyCollision = GameObjectToSpawn.GetComponent<EnemyCollision>();
         if(enemyCollision != null) enemyCollision.Initialise(bulletPoolContainer, duckPoolContainer);
+        else
+        {
+            ParticleCollisionScript _particleCollisionScript = GameObjectToSpawn.GetComponentInChildren<ParticleCollisionScript>();
+            _particleCollisionScript.Initialise(duckPoolContainer);
+        }
 
         ImageToRender.enabled = false;
         GameObjectToSpawn.SetActive(true);

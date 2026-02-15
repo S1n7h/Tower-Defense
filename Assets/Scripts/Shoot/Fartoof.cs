@@ -4,14 +4,15 @@ using UnityEngine;
 public class Fartoof : MonoBehaviour
 {
     [SerializeField] ParticleSystem _particleSystem;
-    bool CollidersInRange = false;
+    [SerializeField] GameObject Enemy;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Entered Trigger.");
-        CollidersInRange = true;
-        Debug.Log($"{collision.gameObject.name}");
-        _particleSystem.trigger.AddCollider(collision);
-        fart();
+        if (collision.tag == Enemy.tag)
+        {
+            //Debug.Log($"{collision.tag} Entered Trigger. My Instance id is {GetInstanceID()}. The collided object instance id is {collision.GetInstanceID()}");
+            _particleSystem.trigger.AddCollider(collision);
+            fart();            
+        }
     }
 
     void OnTriggerStay2D(Collider2D collision)
@@ -25,8 +26,12 @@ public class Fartoof : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        CollidersInRange = false;
-        _particleSystem.trigger.RemoveCollider(collision);
+        if (collision.tag == Enemy.tag)
+        {
+            _particleSystem.trigger.RemoveCollider(collision);
+            //Debug.Log($"{collision.tag} Exited Trigger. My Instance id is {GetInstanceID()}. The collided object instance id is {collision.GetInstanceID()}");
+
+        }
     }
 
     void fart()

@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.Splines;
 
 public class Bullet : MonoBehaviour
 {
@@ -44,6 +45,9 @@ public class Bullet : MonoBehaviour
             {
                 _dropletBulletpool.Release(gameObject);
                 _duckPoolContainer._duckpool.Release(_target.gameObject);
+
+                //set target gameobject's elapsed time to 0, so that it doesn't spawn at the same spot
+                _target.gameObject.GetComponent<SplineAnimate>().ElapsedTime = 0;
                 //Destroy(_target.gameObject);
             }
         }

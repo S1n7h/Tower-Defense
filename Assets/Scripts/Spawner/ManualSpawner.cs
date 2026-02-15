@@ -59,7 +59,9 @@ public class spawner : MonoBehaviour
 
         //reseting spline animate of the duck
         SplineAnimate splineAnimate = duck.GetComponent<SplineAnimate>();
-        splineAnimate.Restart(true);
+
+        //recent omition
+        // splineAnimate.Restart(true);
         duck.SetActive(false);
     }
 
