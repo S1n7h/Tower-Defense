@@ -31,6 +31,10 @@ public class enemyAni : MonoBehaviour
         }
 
         aniSpline.ElapsedTime += aniSpline.MaxSpeed * Time.deltaTime;
+
+        //Objects moving across splines had their z component going haywire during spline animation preventing particle collisions from happening.
+        //this is required to make particle collisions happen 
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
     
     void onComplete()

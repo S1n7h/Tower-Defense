@@ -62,12 +62,13 @@ public class spawner : MonoBehaviour
 
         //recent omition
         // splineAnimate.Restart(true);
+        splineAnimate.ElapsedTime = 0;
         duck.SetActive(false);
     }
 
     private void OnDestroyDuck(GameObject duck)
     {
-        //Debug.Log("This is being called to destroy the duck.");
         Destroy(duck);
+        Debug.Log("Destroy was called");
     }
 }

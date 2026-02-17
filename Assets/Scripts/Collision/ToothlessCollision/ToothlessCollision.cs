@@ -10,11 +10,12 @@ public class ColliderCollisionCheckScript : MonoBehaviour, IDragHandler
     //    Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
     //    rb.useFullKinematicContacts = true;
     //}
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D other)
     {
         //Debug.Log("Collision detected.");
         BlastAwayTheTrash();
-        StartCoroutine(DestroyAfterTime(col.gameObject));
+        Console.WriteLine($"Name of Object colliding is:- {other.transform.parent.gameObject.name}");
+        StartCoroutine(DestroyAfterTime(other.transform.parent.gameObject));
     }
     void BlastAwayTheTrash()
     {
